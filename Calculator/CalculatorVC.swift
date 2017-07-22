@@ -211,7 +211,9 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("0", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
+
         return button
     }()
     
@@ -219,6 +221,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("1", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -227,6 +231,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("2", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -235,6 +241,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("3", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -243,6 +251,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("4", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -251,6 +261,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("5", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -259,6 +271,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("6", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -267,6 +281,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("7", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -275,6 +291,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("8", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -283,6 +301,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("9", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -291,6 +311,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle(".", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -299,6 +321,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("=", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -307,6 +331,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("+", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -315,6 +341,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("-", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -323,6 +351,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("×", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -331,6 +361,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("÷", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -339,6 +371,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("sin", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -347,6 +381,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("cos", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -355,6 +391,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("tan", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -363,6 +401,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("%", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -371,6 +411,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("CLEAR", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -379,6 +421,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("π", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -387,6 +431,8 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("x^y", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
 
         return button
     }()
@@ -395,7 +441,9 @@ class CalculatorVC: UIViewController {
         let button = UIButton()
         button.setTitle("y√x", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
+        
         return button
     }()
     
@@ -405,6 +453,8 @@ class CalculatorVC: UIViewController {
         label.backgroundColor = UIColor.blue
         label.textColor = UIColor.white
         label.font = label.font.withSize(40)
+        label.layer.borderWidth = 2
+        label.layer.borderColor = UIColor.black.cgColor
 
         return label
     }()
@@ -417,6 +467,8 @@ class CalculatorVC: UIViewController {
         label.textAlignment = NSTextAlignment.right
         label.textColor = UIColor.white
         label.font = label.font.withSize(40)
+        label.layer.borderWidth = 2
+        label.layer.borderColor = UIColor.black.cgColor
         
         return label
     }()
