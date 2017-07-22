@@ -14,6 +14,7 @@
 		38E6250B1F1F6C04009D0FD6 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E6250A1F1F6C04009D0FD6 /* CalculatorTests.swift */; };
 		38E625161F1F6C04009D0FD6 /* CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E625151F1F6C04009D0FD6 /* CalculatorUITests.swift */; };
 		38E625241F1F6CE1009D0FD6 /* CalculatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E625231F1F6CE1009D0FD6 /* CalculatorVC.swift */; };
+		38E625261F1F8D51009D0FD6 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E625251F1F8D51009D0FD6 /* CalculatorBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		38E625151F1F6C04009D0FD6 /* CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUITests.swift; sourceTree = "<group>"; };
 		38E625171F1F6C04009D0FD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38E625231F1F6CE1009D0FD6 /* CalculatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorVC.swift; sourceTree = "<group>"; };
+		38E625251F1F8D51009D0FD6 /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				38E624FE1F1F6C04009D0FD6 /* LaunchScreen.storyboard */,
 				38E625011F1F6C04009D0FD6 /* Info.plist */,
 				38E625231F1F6CE1009D0FD6 /* CalculatorVC.swift */,
+				38E625251F1F8D51009D0FD6 /* CalculatorBrain.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38E625261F1F8D51009D0FD6 /* CalculatorBrain.swift in Sources */,
 				38E625241F1F6CE1009D0FD6 /* CalculatorVC.swift in Sources */,
 				38E624F61F1F6C04009D0FD6 /* AppDelegate.swift in Sources */,
 			);
