@@ -12,51 +12,63 @@ class CalculatorVC: UIViewController {
     
     private var brain = CalculatorBrain()
     
-    var display: UILabel!
-    
     var userIsInTheMiddleOfTyping = false
     
     var displayValue: Double {
         
         get {
-            return Double(display.text!)!
+            return Double(resultLabel.text!)!
         }
         set {
-            display.text = String(newValue)
+            resultLabel.text = String(newValue)
         }
     }
     
     func touchDigit(sender: UIButton) {
         
+        // to check if "." is pressed
+        if displayValue != round(displayValue) && sender.titleLabel?.text == "." {
+            return
+        }
+        
         let digit = sender.currentTitle!
         
         if userIsInTheMiddleOfTyping {
-            let textCurrentlyInDisplay = display.text!
-            display.text = textCurrentlyInDisplay + digit
+            let textCurrentlyInDisplay = resultLabel.text!
+            resultLabel.text = textCurrentlyInDisplay + digit
         }
         else {
-            display.text = digit
+            resultLabel.text = digit
             userIsInTheMiddleOfTyping = true
         }
+        print(resultLabel.text!)
     }
     
     func performOperation(sender: UIButton) {
         
         if userIsInTheMiddleOfTyping {
-            //brain.setOperand(displayValue)
-            userIsInTheMiddleOfTyping = false
+            brain.setOperand(displayValue)
         }
         
         if userIsInTheMiddleOfTyping {
             if let mathmaticalSymbol = sender.currentTitle {
-                //brain.performOperation(mathmaticalSymbol)
+                brain.performOperation(mathmaticalSymbol)
             }
         }
-        //if let result = brain.result {
-        //    displayValue = result
-        //}
+        if let result = brain.result {
+            displayValue = result
+        }
         
+        userIsInTheMiddleOfTyping = false
         
+        // if "CLEAR" button is pressed
+        if sender.titleLabel?.text! == "CLEAR" {
+            userIsInTheMiddleOfTyping = false
+            resultLabel.text = "0"
+            descriptionLabel.text = ""
+        }
+        print(resultLabel.text!)
+
     }
     
     func setupUI() {
@@ -64,9 +76,10 @@ class CalculatorVC: UIViewController {
         view.backgroundColor = UIColor.gray
         title = "Calculator"
         navigationController?.navigationBar.barTintColor = UIColor.gray
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: deleteButton)
         view.addSubview(labelStackView)
         view.addSubview(buttonStackView)
+        view.addSubview(deleteButton)
         
         stackView1.axis = .horizontal
         stackView2.axis = .horizontal
@@ -209,240 +222,328 @@ class CalculatorVC: UIViewController {
     
     var numberButton0: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("0", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
-
+        button.backgroundColor = UIColor.orange
+        
+        button.addTarget(self, action: #selector(touchDigit(sender:)), for: UIControlEvents.touchUpInside)
+        
         return button
     }()
     
     var numberButton1: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("1", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(touchDigit(sender:)), for: UIControlEvents.touchUpInside)
+        button.backgroundColor = UIColor.orange
 
         return button
     }()
     
     var numberButton2: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("2", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(touchDigit(sender:)), for: UIControlEvents.touchUpInside)
+        button.backgroundColor = UIColor.orange
 
         return button
     }()
     
     var numberButton3: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("3", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(touchDigit(sender:)), for: UIControlEvents.touchUpInside)
+        button.backgroundColor = UIColor.orange
 
         return button
     }()
     
     var numberButton4: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("4", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(touchDigit(sender:)), for: UIControlEvents.touchUpInside)
+        button.backgroundColor = UIColor.orange
 
         return button
     }()
     
     var numberButton5: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("5", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(touchDigit(sender:)), for: UIControlEvents.touchUpInside)
+        button.backgroundColor = UIColor.orange
 
         return button
     }()
     
     var numberButton6: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("6", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(touchDigit(sender:)), for: UIControlEvents.touchUpInside)
+        button.backgroundColor = UIColor.orange
 
         return button
     }()
     
     var numberButton7: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("7", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(touchDigit(sender:)), for: UIControlEvents.touchUpInside)
+        button.backgroundColor = UIColor.orange
 
         return button
     }()
     
     var numberButton8: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("8", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(touchDigit(sender:)), for: UIControlEvents.touchUpInside)
+        button.backgroundColor = UIColor.orange
 
         return button
     }()
     
     var numberButton9: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("9", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        
+        button.addTarget(self, action: #selector(touchDigit(sender:)), for: UIControlEvents.touchUpInside)
+        button.backgroundColor = UIColor.orange
 
         return button
     }()
     
     var numberButtonDot: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle(".", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = UIColor.orange
 
+        button.addTarget(self, action: #selector(touchDigit(sender:)), for: UIControlEvents.touchUpInside)
+        
         return button
     }()
     
     var buttonEqualSign: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("=", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = UIColor.brown
 
+        button.addTarget(self, action: #selector(performOperation(sender:)), for: UIControlEvents.touchUpInside)
+        
         return button
     }()
     
     var buttonPlus: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("+", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = UIColor.brown
 
+        button.addTarget(self, action: #selector(performOperation(sender:)), for: UIControlEvents.touchUpInside)
+        
         return button
     }()
     
     var buttonMinus: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("-", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = UIColor.brown
 
+        button.addTarget(self, action: #selector(performOperation(sender:)), for: UIControlEvents.touchUpInside)
+        
         return button
     }()
 
     var buttonMultiply: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("×", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = UIColor.brown
 
+        button.addTarget(self, action: #selector(performOperation(sender:)), for: UIControlEvents.touchUpInside)
+        
         return button
     }()
 
     var buttonDivide: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("÷", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = UIColor.brown
 
+        button.addTarget(self, action: #selector(performOperation(sender:)), for: UIControlEvents.touchUpInside)
+        
         return button
     }()
 
     var buttonSin: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("sin", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = UIColor.brown
 
+        button.addTarget(self, action: #selector(performOperation(sender:)), for: UIControlEvents.touchUpInside)
+        
         return button
     }()
 
     var buttonCos: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("cos", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = UIColor.brown
 
+        button.addTarget(self, action: #selector(performOperation(sender:)), for: UIControlEvents.touchUpInside)
+        
         return button
     }()
 
     var buttonTan: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("tan", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = UIColor.brown
 
+        button.addTarget(self, action: #selector(performOperation(sender:)), for: UIControlEvents.touchUpInside)
+        
         return button
     }()
 
     var buttonPercentage: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("%", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = UIColor.brown
 
+        button.addTarget(self, action: #selector(performOperation(sender:)), for: UIControlEvents.touchUpInside)
+        
         return button
     }()
 
     var buttonClear: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("CLEAR", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
-
+        button.backgroundColor = UIColor.brown
+        
+        button.addTarget(self, action: #selector(performOperation(sender:)), for: UIControlEvents.touchUpInside)
+        
         return button
     }()
 
     var buttonPi: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("π", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = UIColor.brown
 
+        button.addTarget(self, action: #selector(performOperation(sender:)), for: UIControlEvents.touchUpInside)
+        
         return button
     }()
 
     var buttonExponent: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("x^y", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = UIColor.brown
 
+        button.addTarget(self, action: #selector(performOperation(sender:)), for: UIControlEvents.touchUpInside)
+        
         return button
     }()
     
     var buttonRoot: UIButton = {
         let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.setTitle("y√x", for: UIControlState.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = UIColor.brown
+        
+        button.addTarget(self, action: #selector(performOperation(sender:)), for: UIControlEvents.touchUpInside)
         
         return button
     }()
@@ -469,7 +570,16 @@ class CalculatorVC: UIViewController {
         label.font = label.font.withSize(40)
         label.layer.borderWidth = 2
         label.layer.borderColor = UIColor.black.cgColor
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.8
         
         return label
+    }()
+    
+    var deleteButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        button.setTitle("Del", for: UIControlState.normal)
+        
+        return button
     }()
 }

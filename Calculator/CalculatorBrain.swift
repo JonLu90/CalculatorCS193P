@@ -2,7 +2,7 @@
 import Foundation
 
 struct CalculatorBrain {
-    /*
+    
     private var accumulator: Double?
     
     private enum Operation {
@@ -10,30 +10,31 @@ struct CalculatorBrain {
         case unaryOperation((Double)->(Double))
         case binaryOperation((Double, Double) -> Double)
         case equal
+        case clear
     }
     
     private var operations: [String: Operation] = [
         
         "π": Operation.constant(Double.pi),
         "e": Operation.constant(M_E),
-        "√": Operation.unaryOperation({ op1 in return sqrt(op1) }),
-        "+":
-        "×":
-        "÷":
-        "sin":
-        "cos":
-        "tan":
-        "x^y"
-        "y√x"
-        "%":
-        ".":
-        "clear":
-        
+        "√": Operation.unaryOperation({ sqrt($0) }),
+        "+": Operation.binaryOperation({ $0 + $1 }),
+        "×": Operation.binaryOperation({ $0 * $1 }),
+        "÷": Operation.binaryOperation({ $0 / $1 }),
+        "sin": Operation.unaryOperation({ sin($0) }),
+        "cos": Operation.unaryOperation({ cos($0) }),
+        "tan": Operation.unaryOperation({ tan($0) }),
+        "x^y": Operation.binaryOperation({ pow($0, $1) }),
+        "y√x": Operation.binaryOperation({ pow($0, 1/$1) }),
+        "%": Operation.unaryOperation({ $0 / 100 }),
+        "=": Operation.equal,
+        "CLEAR": Operation.clear
     ]
     
     mutating func performOperation(_ symbol: String) {
         
         if let operation = operations[symbol] {
+            
             switch operation {
             case .constant(let value):
                 accumulator = value
@@ -48,12 +49,17 @@ struct CalculatorBrain {
                 }
             case .equal:
                 performPendingBinaryOperationWhenEqualPressed()
-            default:
-                break
+            case .clear:
+                clear()
             }
             
         }
         
+    }
+    
+    private mutating func clear() {
+        accumulator = nil
+        pendingBinaryOperationStruct = nil
     }
     
     private var pendingBinaryOperationStruct: PendingBinaryOperationStruct?
@@ -84,5 +90,4 @@ struct CalculatorBrain {
             return accumulator
         }
     }
- */
 }
